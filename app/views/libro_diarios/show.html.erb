@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Fecha:</strong>
+  <%= @libro_diario.fecha %>
+</p>
+
+<p>
+  <strong>Tipo cambio:</strong>
+  <%= @libro_diario.tipo_cambio %>
+</p>
+
+<p>
+  <strong>Cuenta:</strong>
+  <%= @libro_diario.cuenta %>
+</p>
+
+<p>
+  <strong>Deber:</strong>
+  <%= @libro_diario.deber %>
+</p>
+
+<p>
+  <strong>Haber:</strong>
+  <%= @libro_diario.haber %>
+</p>
+
+<p>
+  <strong>Glosario:</strong>
+  <%= @libro_diario.glosario %>
+</p>
+
+<p>
+  <strong>Obsoleto:</strong>
+  <%= @libro_diario.obsoleto %>
+</p>
+
+<p>
+  <strong>Tipo:</strong>
+  <%= @libro_diario.tipo %>
+</p>
+
+<%= link_to 'Edit', edit_libro_diario_path(@libro_diario) %> |
+<%= link_to 'Back', libro_diarios_path %>

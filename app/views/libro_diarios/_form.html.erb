@@ -1,0 +1,49 @@
+<%= form_for(@libro_diario) do |f| %>
+  <% if @libro_diario.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@libro_diario.errors.count, "error") %> prohibited this libro_diario from being saved:</h2>
+
+      <ul>
+      <% @libro_diario.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :fecha %><br>
+    <%= f.date_select :fecha %>
+  </div>
+  <div class="field">
+    <%= f.label :tipo_cambio %><br>
+    <%= f.text_area :tipo_cambio %>
+  </div>
+  <div class="field">
+    <%= f.label :cuenta %><br>
+    <%= f.text_area :cuenta %>
+  </div>
+  <div class="field">
+    <%= f.label :deber %><br>
+    <%= f.text_field :deber %>
+  </div>
+  <div class="field">
+    <%= f.label :haber %><br>
+    <%= f.text_field :haber %>
+  </div>
+  <div class="field">
+    <%= f.label :glosario %><br>
+    <%= f.text_area :glosario %>
+  </div>
+  <div class="field">
+    <%= f.label :obsoleto %><br>
+    <%= f.check_box :obsoleto %>
+  </div>
+  <div class="field">
+    <%= f.label :tipo %><br>
+    <%= f.number_field :tipo %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
