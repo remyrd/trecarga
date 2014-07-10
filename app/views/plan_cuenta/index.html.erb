@@ -1,0 +1,23 @@
+<h1>Listing plan_cuenta</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @plan_cuenta.each do |plan_cuentum| %>
+      <tr>
+        <td><%= link_to 'Show', plan_cuentum %></td>
+        <td><%= link_to 'Edit', edit_plan_cuentum_path(plan_cuentum) %></td>
+        <td><%= link_to 'Destroy', plan_cuentum, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Plan cuentum', new_plan_cuentum_path %>

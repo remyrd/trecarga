@@ -1,0 +1,17 @@
+<%= form_for(@libro_diario) do |f| %>
+  <% if @libro_diario.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@libro_diario.errors.count, "error") %> prohibited this libro_diario from being saved:</h2>
+
+      <ul>
+      <% @libro_diario.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
