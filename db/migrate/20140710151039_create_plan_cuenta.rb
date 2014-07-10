@@ -3,6 +3,8 @@ class CreatePlanCuenta < ActiveRecord::Migration
     create_table :plan_cuenta do |t|
       t.text :codificacion
       t.text :descripcion
+
+      t.timestamps
     end
   end
 end
