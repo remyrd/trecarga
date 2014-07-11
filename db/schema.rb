@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(version: 20140710152638) do
   create_table "libro_diarios", force: true do |t|
     t.date     "fecha"
     t.text     "tipo_cambio"
-    t.text     "cuenta"
+    t.text     "plan_cuentum_id"
     t.float    "deber"
     t.float    "haber"
     t.text     "glosario"

@@ -3,7 +3,7 @@ class CreateLibroDiarios < ActiveRecord::Migration
     create_table :libro_diarios do |t|
       t.date :fecha
       t.text :tipo_cambio
-      t.text :cuenta
+      t.text :plan_cuentum_id
       t.float :deber
       t.float :haber
       t.text :glosario
