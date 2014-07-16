@@ -5,6 +5,7 @@ source 'https://rubygems.org'
 gem 'rails', '4.1.2'
 # Use postgresql as the database for Active Record
 gem 'pg'
+gem 'bcrypt'
 # Use SCSS for stylesheets
 group :development, :test do
 	gem 'rspec-rails'
@@ -14,6 +15,8 @@ group :test do
 	gem 'selenium-webdriver'
 	gem 'capybara'
 end
+
+gem 'activerecord-session_store'
 
 gem 'sass-rails', '~> 4.0.3'
 # Use Uglifier as compressor for JavaScript assets
