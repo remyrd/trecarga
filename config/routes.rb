@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 	get "static_pages/home"
 	resources :sessions, only: [:new, :create, :destroy]
 	resources :users
+	resources :companies
 	match '/signup', to: 'users#new', via: 'get'
 	match '/signin', to: 'sessions#new', via: 'get'
 	match '/signout', to: 'sessions#destroy', via: 'delete'

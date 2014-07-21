@@ -1,10 +1,23 @@
-<%if @user.errors.any?%>
+<%if @user.errors.any? %>
 	<div id="error explanation">
 		<div class="alert alert-error">
 			Se han generado errores <%pluralize(@user.errors.count, "error")%>errores.
 		</div>
 		<ul>
 		<% @user.errors.full_messages.each do |m| %>
+			<li>* <%= m %></li>
+		<%end%>
+		</ul>
+	</div>
+<%end%>
+
+<%if @company.errors.any? %>
+	<div id="error explanation">
+		<div class="alert alert-error">
+			Se han generado errores <%pluralize(@company.errors.count, "error")%>errores.
+		</div>
+		<ul>
+		<% @company.errors.full_messages.each do |m| %>
 			<li>* <%= m %></li>
 		<%end%>
 		</ul>
