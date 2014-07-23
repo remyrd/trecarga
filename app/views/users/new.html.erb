@@ -13,10 +13,11 @@
 	<%= f.label :email %>
 	<%= f.text_field :email %>
 	
-	<% companies_array = Company.all.map { |c| c.name } %>
+	
 	<%= f.label :company %>
-	<%= options_for_select(companies_array) %> 
-      
+	<%= options_from_collection_for_select(Company.all, :id, :name) %>
+  	<%= f.text_field :company %>
+  	
       <%= f.label :password %>
       <%= f.password_field :password %>
 
