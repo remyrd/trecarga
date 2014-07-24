@@ -15,5 +15,3 @@ test:
  database: trecarga_test
  pool: 5
  password: one
-
-

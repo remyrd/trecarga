@@ -5,7 +5,6 @@ source 'https://rubygems.org'
 gem 'rails', '4.1.2'
 # Use postgresql as the database for Active Record
 gem 'pg'
-gem 'bcrypt'
 # Use SCSS for stylesheets
 group :development, :test do
 	gem 'rspec-rails'
@@ -40,7 +39,6 @@ gem 'spring',        group: :development
 
 group :production do
 	gem 'rails_12factor'
-	gem 'unicorn'
 end
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
