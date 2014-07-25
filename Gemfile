@@ -40,7 +40,7 @@ gem 'spring',        group: :development
 group :production do
 	gem 'rails_12factor'
 	gem 'bcrypt'
-
+  gem 'unicorn'
 end
 # Use ActiveModel has_secure_password
 
