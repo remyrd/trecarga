@@ -39,9 +39,10 @@ gem 'spring',        group: :development
 
 group :production do
 	gem 'rails_12factor'
+	gem 'bcrypt'
+
 end
 # Use ActiveModel has_secure_password
-gem 'bcrypt'
 
 # Use unicorn as the app server
 # gem 'unicorn'
