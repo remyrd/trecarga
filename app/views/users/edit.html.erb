@@ -5,10 +5,10 @@
   <div class="span6 offset3">
     <%= form_for(@user) do |f| %>
       <%= render 'shared/error_messages' %>
-
+	<% if @user.name!='admin'%>
       <%= f.label :name %>
       <%= f.text_field :name %>
-
+	<%end%>
       <%= f.label :email %>
       <%= f.text_field :email %>
 
