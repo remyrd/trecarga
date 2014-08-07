@@ -1,0 +1,35 @@
+<% provide(:title, 'New daily') %>
+<h1>New daily for <%= @current_user.company_name %></h1>
+
+<div class="row">
+ <div class="span6 offset3">
+   <%= form_for(@daily) do |f| %>
+     
+	<%= f.label :date %>
+    <%= f.text_field :date %>
+
+	<%= f.label :account_id %>
+	<%= f.text_field :account_id %>
+
+    <%= f.label :glosa %>
+    <%= f.text_field :glosa %>
+
+	<%= f.label :exchange %>
+    <%= f.text_field :exchange %>
+
+    <%= f.label :debe %>
+    <%= f.text_field :debe %>
+
+	<%= f.label :haber %>
+    <%= f.text_field :haber %>
+
+	<%= f.label :tran_type %>
+    <%= f.text_field :tran_type %>
+
+	<%= f.label :obsolete %>
+    <%= f.check_box :obsolete %>
+      
+	<%= f.submit "Create company", class: "btn btn-large btn-primary" %>
+<% end %>
+	</div>
+</div>

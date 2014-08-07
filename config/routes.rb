@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 	resources :sessions, only: [:new, :create, :destroy]
 	resources :users
 	resources :companies
+	resources :dailies, only: [:new, :create, :edit]
 	match '/', to: 'static_pages#home', via: 'get'
 	match '/signup', to: 'users#new', via: 'get'
 	match '/signin', to: 'sessions#new', via: 'get'

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140804150001) do
+ActiveRecord::Schema.define(version: 20140805142054) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -47,7 +47,10 @@ ActiveRecord::Schema.define(version: 20140804150001) do
     t.string   "company_name"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "obsolete",     default: false
   end
+
+  add_index "dailies", ["company_name"], name: "index_dailies_on_company_name", using: :btree
 
   create_table "groups", force: true do |t|
     t.string   "description"
