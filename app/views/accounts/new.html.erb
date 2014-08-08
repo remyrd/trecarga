@@ -1,0 +1,17 @@
+<% provide(:title, 'New account') %>
+<h1>New account, created by <%= @current_user.name %></h1>
+
+<div class="row">
+ <div class="span6 offset3">
+   <%= form_for(@account) do |f| %>
+     
+	<%= f.label :group_id %>
+    <%= f.text_field :group_id %>
+
+	<%= f.label :description %>
+	<%= f.text_field :description %>
+      
+	<%= f.submit "Create account", class: "btn btn-large btn-primary" %>
+<% end %>
+	</div>
+</div>

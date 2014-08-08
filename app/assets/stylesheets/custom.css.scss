@@ -29,9 +29,13 @@ textarea {
   }
 }
 
-/* typography */
+/* typography */f
+ul {
+  display: inline;
+}
 li {
   color: white;
+  display: inline;
 }
 h1, h2, h3, h4, h5, h6 {
   line-height: 1;
@@ -71,6 +75,7 @@ p {
   padding-top: 9px;
   font-weight: bold;
   line-height: 1;
+  display: inline;
   &:hover {
     color: white;
     text-decoration: none;

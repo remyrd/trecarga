@@ -2,12 +2,12 @@
   <div class="navbar-inner">
     <div class="container">
       <%= link_to "trecarga", root_path, id: "logo" %>
+      <% if signed_in? %>
       <nav>
-        <ul class="nav pull-right">
-          <% if signed_in? %>
-            <li id="fat-menu" class="dropdown">
+        <ul class="nav">
+            <li id="fat-menu" class="nav pull-right">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="color:white">
-                Account <b class="caret"></b>
+                Navigation <b class="caret"></b>
               </a>
               <ul class="dropdown-menu">
               	<li><%= link_to "Home", root_path %></li>
@@ -21,11 +21,46 @@
  				<% end %>      
               </ul>
             </li>
-          <% else %>
-            <li><%= link_to "Sign in", signin_path %></li>
-          <% end %>
+            <li id="daily_options" class="nav pull-right">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="color:white">
+                Dailies <b class="caret"></b>
+              </a>
+              <ul class="dropdown-menu">
+              	<li><%= link_to "New", new_daily_path %></li>
+ 				<% if current_user.name=='admin'%>       
+ 				<% end %>      
+              </ul>
+            </li>
+            <li id="account_options" class="nav pull-right">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="color:white">
+                Accounts <b class="caret"></b>
+              </a>
+              <ul class="dropdown-menu">
+              	<li><%= link_to "New", new_account_path %></li>
+ 				<% if current_user.name=='admin'%>       
+ 				<% end %>      
+              </ul>
+            </li>
+            <li id="group_options" class="nav pull-right">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="color:white">
+                Groups <b class="caret"></b>
+              </a>
+              <ul class="dropdown-menu">
+              	<li><%= link_to "New", new_group_path %></li>
+ 				<% if current_user.name=='admin'%>       
+ 				<% end %>      
+              </ul>
+            </li>
+            
         </ul>
       </nav>
+    <% else %>
+    	<nav>
+    		<ul class="nav pull-right">
+       			<li><%= link_to "Sign in", signin_path %></li>
+       		</ul>
+       </nav>
+    <% end %>
     </div>
   </div>
 </header>
