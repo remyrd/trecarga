@@ -12,7 +12,7 @@ class DailiesController < ApplicationController
       flash[:success]="daily created"
       redirect_to root_url
     else
-      render 'users/#{current_user.id}'
+      render "users/#{current_user.id}"
     end  
   end
   
