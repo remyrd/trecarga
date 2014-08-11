@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 	resources :sessions, only: [:new, :create, :destroy]
 	resources :users
 	resources :companies
-	resources :dailies, only: [:new, :create, :edit]
+	resources :dailies
 	resources :accounts
 	resources :groups
 	match '/', to: 'static_pages#home', via: 'get'
