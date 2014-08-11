@@ -6,13 +6,13 @@ class DailiesController < ApplicationController
   end
   
   def create
-    @daily = Daily.new(:daily_params)
-    @daily.company_name = current_user.company.name
+    @daily = Daily.new(daily_params)
+    @daily.company_name = current_user.company_name
     if @daily.save
       flash[:success]="daily created"
-      redirect_to root_url
+      redirect_to "/users/#{current_user.id}"
     else
-      render "users/#{current_user.id}"
+      render root_url
     end  
   end
   

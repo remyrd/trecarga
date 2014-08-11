@@ -9,7 +9,7 @@ class AccountsController < ApplicationController
     @account=Account.new(account_params)
     if @account.save
       flash[:success]= "account succesfully created"
-      redirect_to "users/#{current_user.id}"
+      redirect_to "/users/#{current_user.id}"
     else
       redirect_to root_url
     end

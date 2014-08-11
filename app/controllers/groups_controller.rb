@@ -9,7 +9,7 @@ class GroupsController < ApplicationController
     @group=Group.new(group_params)
     if @group.save
       flash[:success]= "group succesfully created"
-      redirect_to "users/#{current_user.id}"
+      redirect_to "/users/#{current_user.id}"
     else
       redirect_to root_url
     end
