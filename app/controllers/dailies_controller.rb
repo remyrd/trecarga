@@ -23,6 +23,6 @@ class DailiesController < ApplicationController
   private
   
     def daily_params
-      params.require(:daily).permit(:date,:account_id,:glosa,:exchange,:debe,:haber,:tran_type,:obsolete)
+      params.require(:daily).permit(:date,:account_name,:glosa,:exchange,:debe,:haber,:tran_type,:obsolete)
     end
 end

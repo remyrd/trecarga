@@ -1,13 +1,16 @@
 <% provide(:title, 'New account') %>
-<h1>New account, created by <%= @current_user.name %></h1>
+<h1>New account, created by <%= @current_user.name %> for <%= @current_user.company_name%></h1>
 
 <div class="row">
  <div class="span6 offset3">
    <%= form_for(@account) do |f| %>
      
-	<%= f.label :group_id %>
-    <%= f.text_field :group_id %>
+	<%= f.label :group_name %>
+    <%= f.text_field :group_name %>
 
+	<%= f.label :name %>
+    <%= f.text_field :name %>
+    
 	<%= f.label :description %>
 	<%= f.text_field :description %>
       

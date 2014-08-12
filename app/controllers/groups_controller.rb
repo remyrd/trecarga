@@ -7,6 +7,7 @@ class GroupsController < ApplicationController
   
   def create
     @group=Group.new(group_params)
+    @group.company_name = current_user.company_name
     if @group.save
       flash[:success]= "group succesfully created"
       redirect_to "/users/#{current_user.id}"
@@ -31,6 +32,6 @@ class GroupsController < ApplicationController
   
   private
     def group_params
-      params.require(:group).permit(:description)
+      params.require(:group).permit(:name)
     end
 end
