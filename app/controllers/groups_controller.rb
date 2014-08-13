@@ -30,6 +30,10 @@ class GroupsController < ApplicationController
     end
   end
   
+  def index
+    @groups = Group.where(:company_name == @current_user.company_name).all
+  end
+  
   private
     def group_params
       params.require(:group).permit(:name)

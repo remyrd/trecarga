@@ -20,6 +20,10 @@ class DailiesController < ApplicationController
     
   end
   
+  def index
+    @dailies = Daily.where(:company_name == @current_user.company_name).all
+  end
+  
   private
   
     def daily_params

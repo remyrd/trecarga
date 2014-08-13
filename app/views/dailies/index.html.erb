@@ -1,0 +1,10 @@
+<% provide(:title, 'All dailies') %>
+<h1>All dailies on <%= @current_user.company_name %></h1>
+
+<ul class="dailies">
+  <% @dailies.each do |daily| %>
+    <li>
+      <%= link_to daily.account_name, daily %>
+    </li>
+  <% end %>
+</ul>

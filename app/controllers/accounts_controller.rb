@@ -30,6 +30,10 @@ class AccountsController < ApplicationController
     end
   end
   
+  def index
+    @accounts = Account.where(:company_name == @current_user.company_name).all
+  end
+  
   private
     def account_params
       params.require(:account).permit(:group_name, :name, :description)
