@@ -34,6 +34,14 @@ class AccountsController < ApplicationController
     @accounts = Account.where(:company_name == @current_user.company_name).all
   end
   
+  def destroy
+    @account.destroy
+    respond_to do |format|
+      format.html { redirect_to accounts_url, notice: 'Account was successfully destroyed.' }
+      format.json { head :no_content }
+    end
+  end
+  
   private
     def account_params
       params.require(:account).permit(:group_name, :name, :description)

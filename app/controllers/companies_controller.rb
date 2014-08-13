@@ -15,6 +15,14 @@ class CompaniesController < ApplicationController
     end
   end
   
+  def destroy
+    @company.destroy
+    respond_to do |format|
+      format.html { redirect_to root_url, notice: 'Company was successfully destroyed.' }
+      format.json { head :no_content }
+    end
+  end
+  
   private
     def company_params
       params.require(:company).permit(:name, :typo, :address, :city, :country, :phone, :cellphone, :email)

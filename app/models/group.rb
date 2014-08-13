@@ -1,6 +1,6 @@
 class Group < ActiveRecord::Base
 
-  has_many :accounts
+  has_many :accounts, dependent: :destroy
   belongs_to :company
   
   validates :name, uniqueness: :true, presence: :true

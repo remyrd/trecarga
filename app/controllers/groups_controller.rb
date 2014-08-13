@@ -34,6 +34,14 @@ class GroupsController < ApplicationController
     @groups = Group.where(:company_name == @current_user.company_name).all
   end
   
+  def destroy
+    @group.destroy
+    respond_to do |format|
+      format.html { redirect_to groups_url, notice: 'Micropost was successfully destroyed.' }
+      format.json { head :no_content }
+    end
+  end
+  
   private
     def group_params
       params.require(:group).permit(:name)
