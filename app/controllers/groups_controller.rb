@@ -17,14 +17,14 @@ class GroupsController < ApplicationController
   end
   
   def edit
-    Group.find(params[:id])
+    @group=Group.find(params[:id])
   end
   
   def update
-    Group.find(params[:id])
+    @group=Group.find(params[:id])
     if @group.update_attributes(group_params)
       flash[:success] = "group updated"
-      redirect_to current_user
+      redirect_to groups_path
     else
       render 'edit'
     end
@@ -37,7 +37,7 @@ class GroupsController < ApplicationController
   def destroy
     @group.destroy
     respond_to do |format|
-      format.html { redirect_to groups_url, notice: 'Micropost was successfully destroyed.' }
+      format.html { redirect_to groups_url, notice: 'Group was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

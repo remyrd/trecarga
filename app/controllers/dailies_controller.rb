@@ -17,14 +17,14 @@ class DailiesController < ApplicationController
   end
   
   def edit
-    Daily.find(params[:id])
+    @daily=Daily.find(params[:id])
   end
   
   def update
     @daily=Daily.find(params[:id])
     if @daily.update_attributes(params.require(:daily).permit(:obsolete))
       flash[:success] = "daily updated"
-      redirect_to current_user
+      redirect_to dailies_path
     else
       render 'edit'
     end  
@@ -34,17 +34,11 @@ class DailiesController < ApplicationController
     @dailies = Daily.where(:company_name == @current_user.company_name).all
   end
   
-  def destroy
-    @daily.obsolete = true
-    respond_to do |format|
-      format.html { redirect_to groups_url, notice: 'Micropost was successfully turned obsolete.' }
-      format.json { head :no_content }
-    end
-  end
   
   private
   
     def daily_params
       params.require(:daily).permit(:date,:account_name,:glosa,:exchange,:debe,:haber,:tran_type,:obsolete)
     end
+    
 end

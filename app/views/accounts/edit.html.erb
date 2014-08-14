@@ -1,0 +1,19 @@
+<% provide(:title, 'Edit Account') %>
+
+<div class="row">
+  <div class="span6 offset3">
+		<%= form_for(@account) do |f| %>
+		
+			<%= f.label :name %>
+      		<%= f.text_field :name %>
+      		
+      		<%= f.label :description%>
+      		<%= f.text_field :description%>
+      		
+		<%= f.submit "Save changes", class: "btn btn-large btn-primary" %>
+    <% end %>
+
+  </div>
+</div>
+
+<%= link_to 'Back', accounts_path %>

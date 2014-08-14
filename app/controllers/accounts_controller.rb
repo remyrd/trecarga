@@ -17,14 +17,14 @@ class AccountsController < ApplicationController
   end
   
   def edit
-    Account.find(params[:id])
+    @account=Account.find(params[:id])
   end
   
   def update
-    Account.find(params[:id])
+    @account=Account.find(params[:id])
     if @account.update_attributes(account_params)
       flash[:success] = "Account updated"
-      redirect_to current_user
+      redirect_to accounts_path
     else
       render 'edit'
     end

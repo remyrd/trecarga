@@ -3,11 +3,17 @@
 
 <ul class="dailies">
   <% @dailies.each do |daily| %>
+    
     <li>
       <%= link_to daily.account_name, daily %>
     </li>
-    <li>
-    	<%= lint_to "Edit", edit_daily_path(daily)%>
-    </li>
+    <% if daily.obsolete != true %>
+    	<li>
+    		<%= link_to 'Make obsolete', edit_daily_path(daily)%>
+    	</li>
+    <% else %>
+    	<li style = "color:red"> OBSOLETE </li>
+    <%end%>
+    <br>
   <% end %>
 </ul>

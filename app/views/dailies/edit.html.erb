@@ -1,0 +1,23 @@
+<% provide(:title, 'Make Daily Obsolete') %>
+
+
+<%= @daily.glosa %>
+<%= @daily.exchange %>
+<%= @daily.debe %>
+<%= @daily.haber %>
+<%= @daily.tran_type %>
+<%= @daily.company_name %>
+<%= @daily.account_name %>
+<div class="row">
+  <div class="span6 offset3">
+		<%= form_for(@daily) do |f| %>
+		
+			<%= f.label :obsolete %>
+      		<%= f.check_box :obsolete %>
+		<%= f.submit "Save changes", class: "btn btn-large btn-primary" %>
+    <% end %>
+
+  </div>
+</div>
+
+<%= link_to 'Back', dailies_path %>
