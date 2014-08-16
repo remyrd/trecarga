@@ -5,7 +5,7 @@
   <% @dailies.each do |daily| %>
     
     <li>
-      <%= link_to daily.account_name, daily %>
+      <%= link_to daily.account_name, accounts_index %>
     </li>
     <% if daily.obsolete != true %>
     	<li>

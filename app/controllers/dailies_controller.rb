@@ -34,6 +34,9 @@ class DailiesController < ApplicationController
     @dailies = Daily.where(:company_name == @current_user.company_name).all
   end
   
+  def accounts_index
+    @dailies = Daily.where((:company_name == @current_user.company_name) && (:account_name == daily.account_name)).all
+  end
   
   private
   
