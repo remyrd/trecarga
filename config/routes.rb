@@ -7,6 +7,10 @@ Rails.application.routes.draw do
 	resources :companies
 	resources :dailies do
 	  get "accounts_index", on: :member
+	  get "dates_index", on: :member
+	  get "glosas_index", on: :member
+	  get "exchanges_index", on: :member
+	  get "transactions_index", on: :member
 	end
 	resources :accounts
 	resources :groups
@@ -14,7 +18,6 @@ Rails.application.routes.draw do
 	match '/signup', to: 'users#new', via: 'get'
 	match '/signin', to: 'sessions#new', via: 'get'
 	match '/signout', to: 'sessions#destroy', via: 'delete'
-	
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

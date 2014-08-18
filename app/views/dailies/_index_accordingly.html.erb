@@ -1,0 +1,37 @@
+<% provide(:title, 'All dailies') %>
+<h1>All dailies on <%= @current_user.company_name %></h1>
+
+<ul class="dailies">
+  <% @dailies.each do |daily| %>
+    
+    <li>
+      <%= link_to "Date: #{daily.date}", dates_index_daily_path(daily) %>
+    </li>
+    <li>
+      <%= link_to "Account name: #{daily.account_name}", accounts_index_daily_path(daily) %>
+    </li>
+    <li>
+      <%= link_to "Glosa: #{daily.glosa}", glosas_index_daily_path(daily) %>
+    </li>
+    <li>
+      <%= link_to "Exchange: #{daily.exchange}", exchanges_index_daily_path(daily) %>
+    </li>
+    <li style="color:purple">
+      Debe: <%= daily.debe %>
+    </li>
+    <li style="color:green">
+      Haber <%= daily.haber %>
+    </li>
+    <li>
+      <%= link_to "Transaction Type: #{daily.tran_type}", transactions_index_daily_path(daily) %>
+    </li>
+    <% if daily.obsolete != true %>
+    	<li>
+    		<%= link_to 'Make obsolete', edit_daily_path(daily)%>
+    	</li>
+    <% else %>
+    	<li style = "color:red"> OBSOLETE </li>
+    <%end%>
+    <br>
+  <% end %>
+</ul>
