@@ -15,7 +15,8 @@
 	
 	
 	<%= f.label :company_name %>
-  	<%= f.text_field :company_name %>
+	<% companies_array = Company.all.map {|company| company.name}%>
+  	<%= f.select(:company_name, options_for_select(companies_array)) %>
   	
       <%= f.label :password %>
       <%= f.password_field :password %>

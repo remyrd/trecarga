@@ -3,11 +3,18 @@
 
 <ul class="accounts">
   <% @accounts.each do |account| %>
+    <li style="color:blue">
+      Name: <%= account.name %>
+    </li>
+    <li style="color:black">
+      Group: <%= account.group_name%>
+    </li>
+    <li style="color:blue">
+      Description: <%= account.description%>
+    </li>
     <li>
-      <%= link_to account.name, account %>
-      <%= link_to account.group_name, account%>
-      <%= link_to account.description, account%>
       <%= link_to 'Edit', edit_account_path(account)%>
     </li>
+   <br> 
   <% end %>
 </ul>

@@ -22,9 +22,24 @@
     <li style="color:green">
       Haber <%= daily.haber %>
     </li>
-    <li>
-      <%= link_to "Transaction Type: #{daily.tran_type}", transactions_index_daily_path(daily) %>
-    </li>
+    <% case daily.tran_type%>
+    	<% when 1%>
+    	<li>
+      		<%= link_to "Transaction Type: Debito", transactions_index_daily_path(daily) %>
+    	</li>
+    	<%when 2%>
+    	<li>
+      		<%= link_to "Transaction Type: Credito", transactions_index_daily_path(daily) %>
+    	</li>
+    	<%when 3%>
+    	<li>
+      		<%= link_to "Transaction Type: Activo", transactions_index_daily_path(daily) %>
+    	</li>
+    	<%else%>
+    	<li>
+      		<%= link_to "Transaction Type: Pasivo", transactions_index_daily_path(daily) %>
+    	</li>
+    <%end%>
     <% if daily.obsolete != true %>
     	<li>
     		<%= link_to 'Make obsolete', edit_daily_path(daily)%>

@@ -6,7 +6,8 @@
    <%= form_for(@account) do |f| %>
      
 	<%= f.label :group_name %>
-    <%= f.text_field :group_name %>
+	<% groups_array = Group.where(company_name: @current_user.company_name).map {|group| group.name}%>
+    <%= f.select(:group_name,options_for_select(groups_array)) %>
 
 	<%= f.label :name %>
     <%= f.text_field :name %>
