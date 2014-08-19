@@ -8,23 +8,23 @@
 	<%= f.label :account_name %>
 	<% accounts_array = Account.where(company_name: @current_user.company_name).map {|account| account.name}%>
 	<%= f.select(:account_name, options_for_select(accounts_array)) %>
-
+<br>
     <%= f.label :glosa %>
     <%= f.text_field :glosa %>
-
+<br>
 	<%= f.label :exchange %>
     <%= f.select(:exchange, options_for_select([['BoB Boliviano', 'BoB Boliviano'], ['$ Dollar', '$ Dollar'], ['€ Euro', '€ Euro']])) %>
-
+<br>
     <%= f.label :debe %>
     <%= f.text_field :debe %>
-
+<br>
 	<%= f.label :haber %>
     <%= f.text_field :haber %>
-
+<br>
 	<%= f.label :tran_type %>
     <%= f.select(:tran_type, options_for_select([['Debito', 1], ['Credito', 2], ['Activo', 3], ['Pasivo', 4]])) %>
-      
-	<%= f.submit "Create company", class: "btn btn-large btn-primary" %>
+<br>      
+	<%= f.submit "Create daily", class: "btn btn-large btn-primary" %>
 <% end %>
 	</div>
 </div>

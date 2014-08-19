@@ -1,0 +1,19 @@
+<footer class="footer">
+  <%if signed_in?%>
+  	<% debitos_bol = Daily.where(company_name: @current_user.company_name, tran_type: 1, exchange: 'BoB Boliviano').all.inject(0) {|sum,e| sum+=e.debe}%>
+  	<% creditos_bol = Daily.where(company_name: @current_user.company_name, tran_type: 2, exchange: 'BoB Boliviano').all.inject(0) {|sum,e| sum+=e.haber}%>
+	<% pasivos_bol = Daily.where(company_name: @current_user.company_name, tran_type: 3, exchange: 'BoB Boliviano').all.inject(0) {|sum,e| sum+=e.debe}%>  
+  	<% activos_bol = Daily.where(company_name: @current_user.company_name, tran_type: 4, exchange: 'BoB Boliviano').all.inject(0) {|sum,e| sum+=e.haber}%>
+  <%end%>
+  <small>
+    <a href="http://railstutorial.org/">Rails Tutorial</a>
+    by Michael Hartl
+  </small>
+  <nav>
+    <ul>
+      <li><%= link_to "About",   '#' %></li>
+      <li><%= link_to "Contact", '#' %></li>
+      <li><a href="http://news.railstutorial.org/">News</a></li>
+    </ul>
+  </nav>
+</footer>
