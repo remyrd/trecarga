@@ -1,19 +1,35 @@
 <footer class="footer">
   <%if signed_in?%>
-  	<% debitos_bol = Daily.where(company_name: @current_user.company_name, tran_type: 1, exchange: 'BoB Boliviano').all.inject(0) {|sum,e| sum+=e.debe}%>
-  	<% creditos_bol = Daily.where(company_name: @current_user.company_name, tran_type: 2, exchange: 'BoB Boliviano').all.inject(0) {|sum,e| sum+=e.haber}%>
-	<% pasivos_bol = Daily.where(company_name: @current_user.company_name, tran_type: 3, exchange: 'BoB Boliviano').all.inject(0) {|sum,e| sum+=e.debe}%>  
-  	<% activos_bol = Daily.where(company_name: @current_user.company_name, tran_type: 4, exchange: 'BoB Boliviano').all.inject(0) {|sum,e| sum+=e.haber}%>
+  	<% debitos_bol = Daily.where(company_name: @current_user.company_name, tran_type: 1, exchange: 'BoB Boliviano', obsolete: false).all.inject(0) {|sum,e| sum+=e.debe}%>
+  	<% creditos_bol = Daily.where(company_name: @current_user.company_name, tran_type: 2, exchange: 'BoB Boliviano', obsolete: false).all.inject(0) {|sum,e| sum+=e.haber}%>
+	<% pasivos_bol = Daily.where(company_name: @current_user.company_name, tran_type: 4, exchange: 'BoB Boliviano', obsolete: false).all.inject(0) {|sum,e| sum+=e.debe}%>  
+  	<% activos_bol = Daily.where(company_name: @current_user.company_name, tran_type: 3, exchange: 'BoB Boliviano', obsolete: false).all.inject(0) {|sum,e| sum+=e.haber}%>
+  	<% balance_bol1 = creditos_bol - debitos_bol%>
+  	<% balance_bol2 = activos_bol - pasivos_bol%>
+  	
+  	<% debitos_dol = Daily.where(company_name: @current_user.company_name, tran_type: 1, exchange: '$ Dollar', obsolete: false).all.inject(0) {|sum,e| sum+=e.debe}%>
+  	<% creditos_dol = Daily.where(company_name: @current_user.company_name, tran_type: 2, exchange: '$ Dollar', obsolete: false).all.inject(0) {|sum,e| sum+=e.haber}%>
+	<% pasivos_dol = Daily.where(company_name: @current_user.company_name, tran_type: 4, exchange: '$ Dollar', obsolete: false).all.inject(0) {|sum,e| sum+=e.debe}%>  
+  	<% activos_dol = Daily.where(company_name: @current_user.company_name, tran_type: 3, exchange: '$ Dollar', obsolete: false).all.inject(0) {|sum,e| sum+=e.haber}%>
+  	<% balance_dol1 = creditos_dol - debitos_dol%>
+  	<% balance_dol2 = activos_dol - pasivos_dol%>
+  	
+  	<% debitos_eur = Daily.where(company_name: @current_user.company_name, tran_type: 1, exchange: '€ Euro', obsolete: false).all.inject(0) {|sum,e| sum+=e.debe}%>
+  	<% creditos_eur = Daily.where(company_name: @current_user.company_name, tran_type: 2, exchange: '€ Euro', obsolete: false).all.inject(0) {|sum,e| sum+=e.haber}%>
+	<% pasivos_eur = Daily.where(company_name: @current_user.company_name, tran_type: 4, exchange: '€ Euro', obsolete: false).all.inject(0) {|sum,e| sum+=e.debe}%>  
+  	<% activos_eur = Daily.where(company_name: @current_user.company_name, tran_type: 3, exchange: '€ Euro', obsolete: false).all.inject(0) {|sum,e| sum+=e.haber}%>
+  	<% balance_eur1 = creditos_eur - debitos_eur%>
+  	<% balance_eur2 = activos_eur - pasivos_eur%>
   <%end%>
   <small>
-    <a href="http://railstutorial.org/">Rails Tutorial</a>
-    by Michael Hartl
+    Balance BoB: <%= balance_bol1%>, <%= balance_bol2%>
   </small>
-  <nav>
-    <ul>
-      <li><%= link_to "About",   '#' %></li>
-      <li><%= link_to "Contact", '#' %></li>
-      <li><a href="http://news.railstutorial.org/">News</a></li>
-    </ul>
-  </nav>
+  <br>
+  <small>
+    Balance $: <%= balance_dol1%>, <%= balance_dol2%>
+  </small>
+  <br>
+  <small>
+    Balance €: <%= balance_eur1%>, <%= balance_eur2%>
+  </small>
 </footer>
