@@ -8,6 +8,7 @@ class AccountsController < ApplicationController
   def create
     @account=Account.new(account_params)
     @account.company_name = current_user.company_name
+    @account.set_group
     if @account.save
       flash[:success]= "account succesfully created"
       redirect_to "/users/#{current_user.id}"

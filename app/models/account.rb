@@ -6,5 +6,9 @@ class Account < ActiveRecord::Base
   
   validates_presence_of [:group_name, :name]
   validates :name, uniqueness: :true
-  before_save {self.name = "#{group_name}_#{name.downcase}"}
+  before_save {self.name = name.downcase}
+  
+  def set_group
+  	self.name = "#{group_name}_#{name}"
+  end
 end
