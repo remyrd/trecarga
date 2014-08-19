@@ -22,7 +22,11 @@ class AccountsController < ApplicationController
   
   def update
     @account=Account.find(params[:id])
+    @dailies=Daily.where(account_name: @account.name,company_name: @current_user.company_name)
     if @account.update_attributes(account_params)
+      @dailies.each do |daily|
+      	daily.update(account_name: @account.name)
+      end
       flash[:success] = "Account updated"
       redirect_to accounts_path
     else
@@ -31,15 +35,21 @@ class AccountsController < ApplicationController
   end
   
   def index
-    @accounts = Account.where(:company_name == @current_user.company_name).all
+    @accounts = Account.where(company_name: @current_user.company_name).all
   end
   
   def destroy
+    @account=Account.find(params[:id])
+    @dailies=Daily.where(account_name: @account.name, company_name: @current_user.company_name)
+    @dailies.each do |daily|
+    	daily.update(obsolete: true)
+    end
     @account.destroy
     respond_to do |format|
       format.html { redirect_to accounts_url, notice: 'Account was successfully destroyed.' }
       format.json { head :no_content }
     end
+    
   end
   
   private

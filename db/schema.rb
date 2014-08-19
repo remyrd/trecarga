@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140813141956) do
+ActiveRecord::Schema.define(version: 20140818233053) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,7 +41,6 @@ ActiveRecord::Schema.define(version: 20140813141956) do
   create_table "dailies", force: true do |t|
     t.date     "date"
     t.string   "glosa"
-    t.float    "exchange"
     t.float    "debe"
     t.float    "haber"
     t.integer  "tran_type"
@@ -50,6 +49,7 @@ ActiveRecord::Schema.define(version: 20140813141956) do
     t.datetime "updated_at"
     t.boolean  "obsolete",     default: false
     t.string   "account_name"
+    t.string   "exchange"
   end
 
   add_index "dailies", ["company_name"], name: "index_dailies_on_company_name", using: :btree

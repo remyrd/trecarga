@@ -22,7 +22,11 @@ class GroupsController < ApplicationController
   
   def update
     @group=Group.find(params[:id])
+    @accounts = Account.where(group_name: @group.name, company_name: @current_user.company_name)
     if @group.update_attributes(group_params)
+      @accounts.each do |account|
+      	account.update(group_name: @group.name)
+      end
       flash[:success] = "group updated"
       redirect_to groups_path
     else
@@ -31,15 +35,25 @@ class GroupsController < ApplicationController
   end
   
   def index
-    @groups = Group.where(:company_name == @current_user.company_name).all
+    @groups = Group.where(company_name: @current_user.company_name).all
   end
   
   def destroy
+    @group=Group.find(params[:id])
+    @accounts = Account.where(group_name: @group.name, company_name: @current_user.company_name)
+    @accounts.each do |account|
+    	@dailies = Daily.where(account_name: account.name, company_name: @current_user.company_name)
+    	@dailies.each do |daily|
+    		daily.update(obsolete: true)
+    	end
+    	account.destroy
+    end
     @group.destroy
     respond_to do |format|
       format.html { redirect_to groups_url, notice: 'Group was successfully destroyed.' }
       format.json { head :no_content }
     end
+    
   end
   
   private

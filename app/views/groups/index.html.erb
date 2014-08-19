@@ -9,6 +9,9 @@
     <li>
     	<%= link_to "Edit", edit_group_path(group)%>
     </li>
+    <li>
+    	<%= link_to "Delete", group, method: :delete, data: {confirm: "Are you sure?"} %>
+    </li>
     <br>
   <% end %>
 </ul>

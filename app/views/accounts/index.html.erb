@@ -15,6 +15,9 @@
     <li>
       <%= link_to 'Edit', edit_account_path(account)%>
     </li>
+    <li>
+      <%= link_to 'Delete', account, method: :delete, data: {confirm: "Are you sure?"} %>
+    </li>
    <br> 
   <% end %>
 </ul>
