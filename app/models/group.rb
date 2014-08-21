@@ -6,7 +6,7 @@ class Group < ActiveRecord::Base
   validates :name, uniqueness: :true, presence: :true
   before_save {self.name = name.downcase}
   
-  def set_company
-  	self.name = "#{company_name}_#{name.downcase}"	
-  end
+  #def set_company
+  #	self.name = "#{company_name}_#{name.downcase}"	
+  #end
 end
